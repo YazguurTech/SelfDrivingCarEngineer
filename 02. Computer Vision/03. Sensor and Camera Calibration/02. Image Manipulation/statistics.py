@@ -28,7 +28,7 @@ def calculate_mean_std(image_list):
     total_mean = np.mean(means, axis=0)
     total_std = np.mean(stds, axis=0)
     
-    print(len(image_list))
+    #print(len(image_list))
     return total_mean, total_std
 
 
@@ -47,13 +47,14 @@ def channel_histogram(image_list):
         red.extend(R.flatten().tolist())
         green.extend(G.flatten().tolist())
         blue.extend(B.flatten().tolist())
-        break
+
+        break # only added a break to test an chart
    
     sns.kdeplot(red, color='r')
     sns.kdeplot(green, color='g')
     sns.kdeplot(blue, color='b')
     
-    
+    plt.show()
 
 
 if __name__ == "__main__": 

@@ -22,7 +22,7 @@ def create_mask(path, color_threshold):
     #print(G)
     rt, gt, bt = color_threshold
     mask = (R > rt) & (G > gt) & (B > bt)
-    print(mask)
+    #print(mask)
     return img, mask
 
 
@@ -34,13 +34,14 @@ def mask_and_display(img, mask):
     - mask [array]: HxW mask array
     """
     masked_image = img * np.stack([mask] * 3, axis = 2)
-    print(np.stack([mask] * 3, axis = 2))
+    
+    #print(np.stack([mask] * 3, axis = 2))
     f, ax = plt.subplots(1, 3, figsize=(15, 10))
     ax[0].imshow(img)
     ax[1].imshow(mask)
     ax[2].imshow(masked_image)
     
-    #plt.show()
+    plt.show()
 
 if __name__ == '__main__':
     path = 'data/images/segment-1231623110026745648_480_000_500_000_with_camera_labels_38.png'
